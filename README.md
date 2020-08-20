@@ -27,3 +27,6 @@ To give Rule 3 as an example, a dead cell needs exactly 3 neighbours to be born,
 whilst a live cell needs either 2 or 3 neighbours to survive. All other combinations 
 of neighbours result in a dead cell.  
 
+This is the Conway's Game of Life Blinker (period 2 - 3rd generations) that I implemented with Go:
+
+![Blinker](https://user-images.githubusercontent.com/17114008/90703148-d73be600-e241-11ea-88c0-947eae277148.jpg)
