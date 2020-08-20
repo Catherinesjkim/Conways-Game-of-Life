@@ -4,8 +4,13 @@ All of the stateful logic around how I control what the grid looks like at an in
 
 useGrid has multiple useState calls to keep track of various pieces of info that we'll use both for iterating through generations and for our game controls. 
 */
+// import React, { useState, useEffect, useRef, useCallback } from "react";
+// import { 
+//   defaultGrid1, 
+//   defaultGrid2, 
+// }
 
-// State used to keep track of info that I will use for iterating through generations and for game controls. 
+// state used to keep track of info that I will use for iterating through generations and for game controls. 
 export const useGrid = () => {
   const [grid, setGrid] = useState(defaultGrid1);
   const [generation, setGeneration] = useState(0);
