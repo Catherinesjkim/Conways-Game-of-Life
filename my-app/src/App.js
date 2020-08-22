@@ -16,14 +16,19 @@ const operations = [
   [-1, 0]
 ];
 
+const generateEmptyGrid = () => {
+  const rows = [];
+    // set state logic
+    for (let i = 0; i < numRows; i++ ) {
+      rows.push(Array.from(Array(numCols), () => 0));
+  }
+
+return rows;
+}
+
 function App() {
   const [grid, setGrid] = useState(() => {
-    const rows = [];
-    for (let i = 0; i < numRows; i++ ) {
-      rows.push(Array.from(Array(numCols), () => 0))
-    }
-
-    return rows;
+    return generateEmptyGrid()
   });
 
   const [running, setRunning] = useState(false);
@@ -71,7 +76,7 @@ function App() {
       });
     });
     // simulate - set state logic to simulate update
-    setTimeout(runSimulation, 1000);
+    setTimeout(runSimulation, 500);
   }, []);
 
   return (
@@ -84,34 +89,52 @@ function App() {
             runningRef.current = true;
             runSimulation();
           }
+        }}>
+        {running ? "stop" : "start"}
+      </button>
+      <button
+        onClick={() => {
+          const rows = [];
+          for (let i = 0; i < numRows; i++ ) {
+            rows.push(Array.from(Array(numCols), () => Math.random() > .7 ? 1 : 0));
+          }
+
+          setGrid(rows);
         }}
       >
-        {running ? 'stop' : "start"}
+        seed
       </button>
-      <div 
-        style={{
-          display: 'grid', 
-          gridTemplateColumns: `repeat(${numCols}, 20px)`
+      <button
+        onClick={() => {
+          setGrid(generateEmptyGrid());
         }}
-        >
-        {grid.map((rows, i) => 
+      >
+        clear
+      </button>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${numCols}, 20px)`,
+        }}>
+        {grid.map((rows, i) =>
           rows.map((col, k) => (
-            <div 
-            key={`${i}-${k}`}
-            onClick={() => {
-              const newGrid = produce(grid, gridCopy => {
-                gridCopy[i][k] = grid[i][k] ? 0 : 1;
-              })
-              setGrid(newGrid);
-            }}
+            <div
+              key={`${i}-${k}`}
+              onClick={() => {
+                const newGrid = produce(grid, (gridCopy) => {
+                  gridCopy[i][k] = grid[i][k] ? 0 : 1;
+                });
+                setGrid(newGrid);
+              }}
               style={{
-                width: 20, 
-                height: 20, 
-                backgroundColor: grid[i][k] ? 'pink' : undefined, 
-                border: 'solid 1px black'
-            }} 
-          />
-          ))
+                width: 20,
+                height: 20,
+                backgroundColor: grid[i][k] ? "pink" : undefined,
+                border: "solid 1px black",
+              }}
+            />
+          )),
         )}
       </div>
     </>
