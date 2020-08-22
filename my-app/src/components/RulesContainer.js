@@ -16,16 +16,16 @@ export default function RulesContainer() {
       </p>
       <ul>
         <li>
-          Any live cell with fewer than two live neighborus dies, as if by underpopulation.
+          1. Any live cell with fewer than two live neighborus dies, as if by underpopulation.
         </li>
         <li>
-          Any live cell with two or three lives on to the next generation.
+          2. Any live cell with two or three lives on to the next generation.
         </li>
         <li>
-          Any live cell with more than three live neighborus dies, as if by overrpopulation.
+          3. Any live cell with more than three live neighborus dies, as if by overrpopulation.
         </li>
         <li>
-          Any dead cell with three live neighborus becomes a live cell, as if by reproduction.
+          4. Any dead cell with three live neighborus becomes a live cell, as if by reproduction.
         </li>
       </ul>
       <p>
