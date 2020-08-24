@@ -1,5 +1,5 @@
 import React from "react"
-import { gridDisplay, cellDisplay } from '../helper-functions/display-function'
+import { gridDisplay, cellDisplay } from '../helper-functions/display-functions'
 
 // In order to visually display the grid and cells to the screen, we create a Grid component that maps over our grid array and generates an individual cell for each object in the grid array.
 
