@@ -5,16 +5,16 @@ export default function About() {
 
   return (
     <div className="about_section">
-      <p>
-        Check out my Github repo which explains how Conway's Game of Life works:{" "}
+      <h1>
+        Check out my Github repo!:{" "}
         <a
          target="_blank"
          rel="noreferrer noopener"
          href="https://github.com/Catherinesjkim/Conways-Game-of-Life/blob/master/README.md"
         >
-          How I implemented Conway's Game of Life Blinker with Go
+          Implementation of Blinker with Go
         </a>
-      </p>
+      </h1>
 
       <p>
         Learn more about Conway's Game of Life:{" "}
